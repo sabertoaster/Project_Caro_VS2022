@@ -1,6 +1,6 @@
 #pragma once
-#include<window.h>
 #include<stdio.h>
+#include <windows.h>
 void FixConsoleWindow()
 {
     HWND consoleWindow = GetConsoleWindow();
@@ -32,3 +32,31 @@ COORD GetConsoleCursorPosition(HANDLE hConsoleOutput) //return current pointer c
     }
 }
 // View
+void move()
+{
+    if (_kbhit())
+    {
+        COORD currentCoord = GetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE)); // get current (x,y)
+        switch (_getch())
+        {
+        case 'a':
+            cout << 'a';
+            GotoXY(currentCoord.X - 1, currentCoord.Y);
+            break;
+        case 'w':
+            cout << 'w';
+            GotoXY(currentCoord.X, currentCoord.Y - 1);
+            break;
+        case 's':
+            cout << 's';
+            GotoXY(currentCoord.X, currentCoord.Y + 1);
+            break;
+        case 'd':
+            cout << 'd';
+            GotoXY(currentCoord.X + 1, currentCoord.Y);
+            break;
+        default:
+            break;
+        };
+    }
+}
