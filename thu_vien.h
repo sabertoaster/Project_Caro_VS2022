@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include<stdio.h>
 #include <windows.h>
 void FixConsoleWindow()
@@ -8,7 +8,13 @@ void FixConsoleWindow()
     style = style & ~(WS_MAXIMIZEBOX) & ~(WS_THICKFRAME);
     SetWindowLong(consoleWindow, GWL_STYLE, style);
 }
-
+void resizeConsole(int width, int height) //Với width là chiều rộng, heigth là chiều cao
+{
+    HWND console = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(console, &r);
+    MoveWindow(console, r.left, r.top, width, height, TRUE);
+}
 // View
 void GotoXY(int x, int y)
 {
