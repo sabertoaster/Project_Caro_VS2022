@@ -10,9 +10,9 @@ typedef long long ll;
 
 int main()
 {
-    resizeConsole(500, 500);
+    resizeConsole(500, 5000);
     FixConsoleWindow();
-    cout << "hello world";
+    cout << "hello world :)))";
     while (true)
     {
         move();
