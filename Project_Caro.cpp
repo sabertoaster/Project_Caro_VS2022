@@ -41,7 +41,7 @@ COORD GetConsoleCursorPosition(HANDLE hConsoleOutput) //return current pointer c
 int main()
 {
     FixConsoleWindow();
-    cout << "Hello World";
+    cout << "Hello World :00000";
     while (true)
     {
         if (_kbhit())
